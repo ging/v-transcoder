@@ -13,7 +13,7 @@ gem 'jquery-rails'
 # Requirements
 gem 'inherited_resources', "~> 1.2.2"
 gem 'foreigner'          , "~> 0.9.1"
-gem 'resque'             , "~> 1.17.1"
+gem 'resque'             , "~> 1.17.1", :require => "resque/server"
 
 #Other versions of sprockets destroy assets
 gem 'sprockets', '= 2.0.0.beta.10'
