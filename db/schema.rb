@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(:version => 20110628075057) do
 
   create_table "jobs", :force => true do |t|
-    t.integer  "job_id"
     t.string   "input_name"
     t.integer  "length_in_seconds"
     t.integer  "size_in_mb"
@@ -21,13 +20,10 @@ ActiveRecord::Schema.define(:version => 20110628075057) do
     t.string   "owner"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "assigned_to_machine_id"
+    t.integer  "machine_id"
   end
 
-  add_index "jobs", ["job_id"], :name => "index_jobs_on_job_id"
-
   create_table "machines", :force => true do |t|
-    t.integer  "machine_id"
     t.string   "status"
     t.string   "url"
     t.string   "type"
@@ -35,18 +31,13 @@ ActiveRecord::Schema.define(:version => 20110628075057) do
     t.datetime "updated_at"
   end
 
-  add_index "machines", ["machine_id"], :name => "index_machines_on_machine_id"
-
   create_table "video_artifacts", :force => true do |t|
-    t.integer  "video_artifact_id"
     t.string   "name"
     t.string   "output"
     t.string   "params"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "parent_job_id"
+    t.integer  "job_id"
   end
-
-  add_index "video_artifacts", ["video_artifact_id"], :name => "index_video_artifacts_on_video_artifact_id"
 
 end

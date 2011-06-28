@@ -6,11 +6,9 @@ class CreateVTranscoder < ActiveRecord::Migration
       t.string  "params"
       t.datetime "created_at"
       t.datetime "updated_at"
-      t.integer  "parent_job_id"
+      t.integer  "job_id"
     end
-    
-    add_index "video_artifacts", "parent_job_id"
-    
+        
     create_table "jobs", :force => true do |t|
       t.string   "input_name"
       t.integer  "length_in_seconds"
@@ -19,11 +17,9 @@ class CreateVTranscoder < ActiveRecord::Migration
       t.string   "owner"
       t.datetime "created_at"
       t.datetime "updated_at"
-      t.integer  "assigned_to_machine_id" #machine assignet to process this job
+      t.integer  "machine_id" #machine assigned to process this job
     end
-    
-    add_index "jobs", "assigned_to_machine_id"
-    
+        
     create_table "machines", :force => true do |t|
       t.string   "status" 
       t.string   "url"
@@ -32,8 +28,8 @@ class CreateVTranscoder < ActiveRecord::Migration
       t.datetime "updated_at"
     end    
     
-    add_foreign_key "jobs", "video_artifacts", :name => "index_jobs_on_parent_job_id"
-    add_foreign_key "machines", "jobs", :name => "index_machines_on_assigned_to_machine_id"
+    add_foreign_key "video_artifacts", "jobs", :name => "index_video_artifacts_on_job_id"
+    add_foreign_key "jobs", "machines", :name => "index_jobs_on_machine_id"
     
   end
   
@@ -41,5 +37,7 @@ class CreateVTranscoder < ActiveRecord::Migration
     drop_table :jobs
     drop_table :machines
     drop_table :video_artifacts
+    remove_foreign_key "video_artifacts", :name => "index_video_artifacts_on_job_id"
+    remove_foreign_key "jobs", :name => "index_jobs_on_machine_id"
   end
 end
