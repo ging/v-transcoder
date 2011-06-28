@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  machine_id: 
+  status: 
+  url: 
+  type: 
+  created_at: 
+  updated_at: 2011-06-28 09:56:28
+
+two:
+  machine_id: 
+  status: 
+  url: 
+  type: 
+  created_at: 
+  updated_at: 2011-06-28 09:56:28
