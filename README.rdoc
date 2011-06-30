@@ -15,7 +15,7 @@ v-transcoder-node     (rails app)
 				  done, and send all necessary data to the client.
 
 (3) v-transcoder-client, with the information received, it uploads the video to be 
-					     transcoded to the selected v-transcoder-node
+					     transcoded to the selected v-transcoder-node.
 					
 (4) v-transcoder-node, transcodes and send a notification when it's done.
 
@@ -23,14 +23,14 @@ v-transcoder-node     (rails app)
 					
 = Current Status:
 
-(1)- Simulated with curl
-(2)- PARCIALLY IMPLEMENTED
-   (2.1) - Parse information (IMPLEMENTED)
-   (2.2) - Select machine    (just one machine, no big deal)   
-   (2.3) - Message to client with selected machine (IMPLEMENTED)
-(3)- NOT EVEN STARTED
-(4)- NOT EVEN STARTED
-(5)- NOT EVEN STARTED
+(1)- Simulated with curl.
+(2)- PARCIALLY IMPLEMENTED.
+   (2.1) - Parse information (IMPLEMENTED).
+   (2.2) - Select machine    (just one machine, no big deal).  
+   (2.3) - Message to client with selected machine (IMPLEMENTED).
+(3)- NOT EVEN STARTED.
+(4)- NOT EVEN STARTED.
+(5)- NOT EVEN STARTED.
 
 
 
