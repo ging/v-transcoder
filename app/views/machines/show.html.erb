@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Machine:</h1>
+
 <p>
   <b>Status:</b>
   <%= @machine.status %>
@@ -25,6 +27,39 @@
   <%= @machine.updated_at %>
 </p>
 
+<hr/>
 
-<%= link_to 'Edit', edit_machine_path(@machine) %> |
-<%= link_to 'Back', machines_path %>
+<h1>Jobs for this machine:</h1>
+
+<table>
+  <tr>
+    <th>code</th>
+    <th>input</th>
+    <th>length (s)</th>
+    <th>size   (MB)</th>
+    <th>Status</th>
+    <th>Owner</th>
+    <th>Updated at</th>
+	<th></th>
+  </tr>
+
+<% @machine.jobs.each do |job| %>
+  <tr>
+	<td><%= job.code %></td>
+    <td><%= job.input_name %></td>
+    <td><%= job.length_in_seconds %></td>
+    <td><%= job.size_in_mb %></td>
+    <td><%= job.status %></td>
+    <td><%= job.owner %></td>
+    <td><%= job.updated_at %></td>
+	<td><%= link_to 'VideoArtifacts', :controller => :jobs, :action => :show, :id => job.id %></td>
+  </tr>
+<% end %>
+</table>
+
+<br/>
+<hr/>
+<br/>
+
+<%= link_to 'Edit machine', edit_machine_path(@machine) %> |
+<%= link_to 'Back to machines', machines_path %>

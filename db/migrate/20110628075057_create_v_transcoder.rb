@@ -10,6 +10,7 @@ class CreateVTranscoder < ActiveRecord::Migration
     end
         
     create_table "jobs", :force => true do |t|
+      t.string   "code"
       t.string   "input_name"
       t.integer  "length_in_seconds"
       t.integer  "size_in_mb"

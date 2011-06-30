@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Job:</h1>
+
+<p>
+  <b>Code:</b>
+  <%= @job.code %>
+</p>
+
+<p>
+  <b>Input:</b>
+  <%= @job.input_name %>
+</p>
+
+<p>
+  <b>length (s):</b>
+  <%= @job.length_in_seconds %>
+</p>
+
+<p>
+  <b>size (MB):</b>
+  <%= @job.size_in_mb %>
+</p>
+
+<p>
+  <b>status:</b>
+  <%= @job.status %>
+</p>
+
+<p>
+  <b>callback:</b>
+  <%= @job.owner %>
+</p>
+
+<p>
+  <b>Assigned to machine:</b>
+  <%= link_to 'Machine_'+@job.machine_id.to_s, :controller => :machines, 
+               :action => :show, :id => @job.machine_id 
+  %>
+</p>
+
+<hr/>
+
+<h1>Video Artifacts for this Job:</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Output</th>
+    <th>Params</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+
+<% @job.video_artifacts.each do |va| %>
+  <tr>
+    <td><%= va.name %></td>
+    <td><%= va.output %></td>
+    <td><%= va.params %></td>
+    <td><%= va.created_at %></td>
+    <td><%= va.updated_at %></td>
+  </tr>
+<% end %>
+</table>
+
+<br/>
+<hr/>
+<br/>
+
+<%= link_to 'Back to Machine_'+@job.machine_id.to_s, :controller => :machines, 
+             :action => :show, :id => @job.machine_id 
+%><br/>
+<%= link_to 'Back to machines', machines_path %>

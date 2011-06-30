@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(:version => 20110628075057) do
 
   create_table "jobs", :force => true do |t|
+    t.string   "code"
     t.string   "input_name"
     t.integer  "length_in_seconds"
     t.integer  "size_in_mb"
