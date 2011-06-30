@@ -1,4 +1,4 @@
-== v-transcoder  
+= v-transcoder  
 
 v-transcoder is a manager to provide Video Transcoding as a service.
 
@@ -7,7 +7,7 @@ It works together with two projects yet to come:
 v-transcoder-client   (gem)
 v-transcoder-node     (rails app)
 
-== How it works?
+= How it works?
 
 (1) v-transcoder-client, send information about the transcoding needs
 
@@ -21,7 +21,7 @@ v-transcoder-node     (rails app)
 
 (5) v-transcoder-client, downloads the video_artifacts generated and everything is cleaned up.					
 					
-== Current Status:
+= Current Status:
 
 (1)- Simulated with curl
 (2)- PARCIALLY IMPLEMENTED
